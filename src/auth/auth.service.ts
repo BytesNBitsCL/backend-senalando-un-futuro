@@ -45,8 +45,12 @@ export class AuthService {
       this.jwtSecret,
       { expiresIn: '1h' } // 1 hora de expiración
     );
-    const resetLink = `${process.env.FRONT_URL}/updatePassword?token=${token}`;
+    // * Descomentar la linea de abajo al subir a producción
+    //const resetLink = `${process.env.FRONT_URL}/updatePassword?token=${token}`;
 
+    // * Comentar la linea de abajo al subir a producción
+    const resetLink = `http://localhost:3000/updatePassword?token=${token}`;
+    
     // Enviar correo con el enlace de restablecimiento
     await this.transporter.sendMail({
       from: 'suf.proyect@gmail.com',

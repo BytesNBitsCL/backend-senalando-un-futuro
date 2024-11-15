@@ -7,6 +7,8 @@ import { CategoriasModule } from './categorias/categorias.module';
 import { NivelModule } from './niveles/niveles.module';
 import { ProgresoModule } from './progresos/progresos.module';
 import { AuthModule } from './auth/auth.module';
+import { SignLanguageService } from './sign-language/sign-language.service';
+import { SignLanguageController } from './sign-language/sign-language.controller';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -18,7 +20,7 @@ import { AuthModule } from './auth/auth.module';
     ProgresoModule,
     AuthModule
   ],
-  controllers: [],
-  providers: [PrismaService],
+  controllers: [SignLanguageController],
+  providers: [PrismaService, SignLanguageService],
 })
 export class AppModule {}
